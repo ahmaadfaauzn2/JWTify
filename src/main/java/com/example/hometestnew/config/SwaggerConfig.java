@@ -14,7 +14,7 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-                .addServersItem(new Server().url("https://hometestjavaprogrammer-production.up.railway.app"))
+                .addServersItem(new Server().url("https://hometest-java-program-production.up.railway.app"))
                 .info(new Info().title("Home Test API"))
                 .components(new Components().addSecuritySchemes("JavaInUseSecurityScheme",
                         new SecurityScheme()
