@@ -27,8 +27,8 @@ Ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-   ```bash
-   git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
+```bash
+git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
 
 
 
