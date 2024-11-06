@@ -1,6 +1,6 @@
 # HomeTest Java Program
 
-A Spring Boot application using PostgreSQL for database management. This project provides a home testing system with API endpoints for managing user profiles, transactions, and services, and includes Swagger UI for easy testing.
+A Spring Boot application using PostgreSQL for database management. This project provides a home test for java programmer Nutech-Integrasi.
 
 ## Tech Stack
 
