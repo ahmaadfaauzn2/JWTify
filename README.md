@@ -30,3 +30,4 @@ Ensure you have the following installed:
 ```bash
 git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
 
+### 2. Config the application
