@@ -1,5 +1,6 @@
 # HomeTest Java Program
 
+
 A Spring Boot application using PostgreSQL for database management. This project provides a home testing system with API endpoints for managing user profiles, transactions, and services, and includes Swagger UI for easy testing.
 
 ## Tech Stack
@@ -26,11 +27,6 @@ Ensure you have the following installed:
 ## Getting Started
 
 ### 1. Clone the Repository
-
 ```bash
 git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
-
-
-## 2. Configure the Application
-
 
