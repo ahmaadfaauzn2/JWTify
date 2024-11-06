@@ -25,19 +25,9 @@ Ensure you have the following installed:
 
 ## Getting Started
 
-### 1. Clone the Repository
+## 1. Clone the Repository
 
-```bash
 git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
-```bash
-
-
-
-
-
-
-
-
 
 
 2. Configure the Application
