@@ -29,63 +29,59 @@ Before you start, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
+2. Configure Application
+Navigate to src/main/resources/application.properties and configure the database connection properties:
 
-### 2. Configure Application
-
-Navigate to `src/main/resources/application.properties` and configure the database connection properties:
-
-```properties
+properties
+Copy code
 spring.datasource.url=jdbc:postgresql://localhost:5432/hometestdb
 spring.datasource.username=hometestuser
 spring.datasource.password=password
 spring.jpa.hibernate.ddl-auto=update
+3. Build the Application
+Using Maven:
 
-### 3. Build the Application
+bash
+Copy code
+mvn clean install
+Using Gradle:
+
+bash
+Copy code
+gradle build
+4. Run the Application
+To start the Spring Boot application, run the following command:
 
 Using Maven:
 
-- bash
-- Copy code
-- mvn clean install
+bash
+Copy code
+mvn spring-boot:run
+or
 
 Using Gradle:
 
-- bash
-- Copy code
-- gradle build
+bash
+Copy code
+gradle bootRun
+By default, the app will run on http://localhost:8080.
 
-### 4. Run the Application
-To start the Spring Boot application, run the following command:
-
-- bash
-- Copy code
-- mvn spring-boot:run
-or
-
-- bash
-- Copy code
-- gradle bootRun
-
-By default, the app will run on http://localhost:8080
-
-### 5. Access the API
-
+5. Access the API
 Once the application is up and running, you can view and test the available API endpoints using Swagger UI at the following link:
 
-https://hometest-java-program-production.up.railway.app/swagger-ui/index.html#/
+Swagger UI Documentation
 
-### API Endpoints
-- POST /registration: Register a new user.
-- POST /login: Login with registered user credentials.
-- GET /profile: Get the current user's profile.
-- PUT /profile/update: Update the current user's profile information.
-- PUT /profile/image: Update the profile image of the user.
-- POST /transaction: Create a new transaction.
-- POST /topup: Top up the user's balance.
-- GET /transaction/history: Retrieve the transaction history of the user.
-- GET /services: List all available services.
-- GET /banner: Retrieve the banner information.
-- GET /balance: Retrieve the user's current balance.
-
+API Endpoints
+POST /registration: Register a new user.
+POST /login: Login with registered user credentials.
+GET /profile: Get the current user's profile.
+PUT /profile/update: Update the current user's profile information.
+PUT /profile/image: Update the profile image of the user.
+POST /transaction: Create a new transaction.
+POST /topup: Top up the user's balance.
+GET /transaction/history: Retrieve the transaction history of the user.
+GET /services: List all available services.
+GET /banner: Retrieve the banner information.
+GET /balance: Retrieve the user's current balance.
 Contributing
 Feel free to fork this repository and create a pull request if you'd like to contribute improvements, bug fixes, or new features.
