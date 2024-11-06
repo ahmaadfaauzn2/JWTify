@@ -44,7 +44,7 @@ public class SecurityConfig {
     
     private CorsConfigurationSource customCorsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("https://hometestjavaprogrammer-production.up.railway.app");
+        configuration.addAllowedOrigin("https://hometest-java-program-production.up.railway.app");
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
