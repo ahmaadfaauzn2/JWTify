@@ -1,5 +1,6 @@
 package com.example.hometestnew.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.ZonedDateTime;
 
@@ -77,6 +78,7 @@ public class Transaction {
     private double totalAmount;
 
     @Column(name = "created_on")
+    @JsonIgnore
     private ZonedDateTime createdOn;
 
     // Constructors, Getters, and Setters
