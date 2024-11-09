@@ -69,10 +69,10 @@ public class AuthController {
 
     // Endpoint Login
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse> login(@RequestBody Map<String, String> loginData) {
+    public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest loginRequest) {
         // Define the required parameters for login
-        String email = loginData.get("email");
-        String password = loginData.get("password");
+        String email = loginRequest.getEmail();
+        String password = loginRequest.getPassword();
 
         // Logic to validate the email and password
         if (email == null || !email.contains("@")) {
@@ -94,6 +94,7 @@ public class AuthController {
 
     // Endpoint Register
     @PostMapping("/registration")
+
     public ResponseEntity<ApiResponse> registerUser(@Valid @RequestBody User user) {
         // Validate the email format
         if (!user.getEmail().contains("@")) {
