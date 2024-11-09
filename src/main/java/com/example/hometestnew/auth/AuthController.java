@@ -10,7 +10,7 @@ import com.example.hometestnew.repository.ServiceRepository;
 //import com.example.hometestnew.repository.TransactionTypeRepository;
 import com.example.hometestnew.repository.TransactionRepository;
 import com.example.hometestnew.repository.UserRepository;
-import com.example.hometestnew.request.LoginRequest;
+import com.example.hometestnew.models.LoginRequest;
 import com.example.hometestnew.models.TopUpRequest;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
