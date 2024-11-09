@@ -97,7 +97,7 @@ public class AuthController {
     // Endpoint Register
     @PostMapping("/registration")
 
-    public ResponseEntity<ApiResponse> registerUser(@Valid @RequestBody User user) {
+    public ResponseEntity<ApiResponse> registration(@Valid @RequestBody User user) {
         // Validate the email format
         if (!user.getEmail().contains("@")) {
             return createErrorResponse(HttpStatus.BAD_REQUEST, 102, "Format email tidak valid");
@@ -459,7 +459,7 @@ public class AuthController {
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PostMapping(value = "/transaction", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> performTransaction(@RequestBody TransactionRequest transactionRequest, HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> transaction(@RequestBody TransactionRequest transactionRequest, HttpServletRequest request) {
 
         // Step 1: Validate Authorization header
         String authHeader = request.getHeader("Authorization");
