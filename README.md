@@ -82,7 +82,7 @@ https://hometest-java-program-production.up.railway.app/swagger-ui/index.html#/
 
 # Test the API 
 
-Heres the API Documentation you can try !
+Heres the API Documentation API you can try !
 https://hometest-java-program-production.up.railway.app/swagger-ui/index.html#/
 
 # API Endpoints
