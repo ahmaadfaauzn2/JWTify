@@ -1,6 +1,7 @@
 package com.example.hometestnew.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.Map;
 
@@ -11,6 +12,7 @@ public class ApiResponse {
     private String message;
     private Map<String, Object> data;
 
+    @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
     @JsonProperty("email")
     public String getEmail() {
         return email;
@@ -21,6 +23,7 @@ public class ApiResponse {
     }
 
     @JsonProperty("password")
+    @Schema(description = "The password of the user", example = "abcdef1234")
     public String getPassword() {
         return password;
     }
@@ -30,7 +33,11 @@ public class ApiResponse {
     }
 
     // Update to use a custom response structure
+    @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
     private String email;
+
+    @Schema(description = "The password of the user", example = "abcdef1234")
+    @JsonProperty("password")
     private String password;
 
 
