@@ -38,6 +38,7 @@ public class User {
     }
 
     @Schema(hidden = true)
+    @JsonIgnore
     private String transactionType;
 
     @Id
@@ -240,6 +241,7 @@ public class User {
                 '}';
     }
 
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(() -> "ROLE_USER"); // Example: replace with your actual roles
     }
