@@ -1,6 +1,7 @@
 package com.example.hometestnew.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -49,7 +50,7 @@ public class User {
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-
+    @JsonIgnore
     @Schema(hidden = true)
     private List<Transaction> transactions = new ArrayList<>();
 
@@ -94,12 +95,15 @@ public class User {
 
     // Transaction fields
     @Schema(hidden = true)
+    @JsonIgnore
     private String invoiceNumber;
 
     @Schema(hidden = true)
+    @JsonIgnore
     private String description;
 
     @Schema(hidden = true)
+    @JsonIgnore
     private double totalAmount;
 
 
