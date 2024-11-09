@@ -450,7 +450,7 @@ public class AuthController {
         // Prepare and return the success response
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("balance", newBalance);
-        // responseData.put("invoice_number", transaction.getInvoiceNumber());
+        responseData.put("invoice_number", transaction.getInvoiceNumber());
         return ResponseEntity.ok(new ApiResponse(0, "Top Up Balance berhasil", responseData));
     }
 
