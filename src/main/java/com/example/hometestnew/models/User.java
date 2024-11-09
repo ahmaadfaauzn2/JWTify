@@ -253,6 +253,7 @@ public class User {
         this.createdOn = createdOn;
     }
 
+    @JsonIgnore
     public Object getTransactionCount() {
         return null;
     }
