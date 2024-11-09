@@ -114,7 +114,7 @@ public class AuthController {
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/profile")
-    public ResponseEntity<ApiResponse> getProfile(HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> profile(HttpServletRequest request) {
         // Validate the Authorization header
         String authHeader = request.getHeader("Authorization");
 
@@ -287,7 +287,7 @@ public class AuthController {
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @GetMapping(value = "/banner", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> getBanners() {
+    public ResponseEntity<ApiResponse> banner() {
         // Retrieve the list of banners from the database
         List<Banner> banners = bannerService.getAllBanners();
 
@@ -314,7 +314,7 @@ public class AuthController {
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @GetMapping(value = "/services", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> getServices(HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> services(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
 
         // Check if the Authorization header is present and valid
@@ -363,7 +363,7 @@ public class AuthController {
     @GetMapping(value = "/balance", produces = MediaType.APPLICATION_JSON_VALUE)
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    public ResponseEntity<ApiResponse> getBalance(HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> balance(HttpServletRequest request) {
         // Validate the Authorization header
         String authHeader = request.getHeader("Authorization");
 
