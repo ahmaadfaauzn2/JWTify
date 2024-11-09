@@ -36,10 +36,12 @@ public class User {
         this.transactionType = transactionType;
     }
 
+    @Schema(hidden = true)
     private String transactionType;
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
+    @Schema(hidden = true)
     private Long id;
 
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -48,6 +50,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 
+    @Schema(hidden = true)
     private List<Transaction> transactions = new ArrayList<>();
 
     public List<Transaction> getTransactions() {
@@ -58,6 +61,8 @@ public class User {
         transactions.add(transaction);
         transaction.setUser(this); // Set the user reference in the transaction
     }
+    @Schema(hidden = true)
+
     public String getInvoiceNumber() {
         return invoiceNumber;
     }
@@ -77,6 +82,7 @@ public class User {
     }
 
     @ElementCollection
+    @Schema(hidden = true)
     private List<String> transactionHistory = new ArrayList<>();
 
     public List<String> getTransactionHistory() {
@@ -87,8 +93,13 @@ public class User {
     }
 
     // Transaction fields
+    @Schema(hidden = true)
     private String invoiceNumber;
+
+    @Schema(hidden = true)
     private String description;
+
+    @Schema(hidden = true)
     private double totalAmount;
 
 
