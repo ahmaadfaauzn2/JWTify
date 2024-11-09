@@ -425,7 +425,7 @@ public class AuthController {
         }
 
         // Validate the top-up amount
-        double topUpAmount = topUpRequest.getTopUpAmount();
+        double topUpAmount = topUpRequest.getTop_up_amount();
         if (topUpAmount < 0) {
             return createErrorResponse(HttpStatus.BAD_REQUEST, 102, "Parameter amount hanya boleh angka dan tidak boleh lebih kecil dari 0");
         }
@@ -453,7 +453,6 @@ public class AuthController {
         // responseData.put("invoice_number", transaction.getInvoiceNumber());
         return ResponseEntity.ok(new ApiResponse(0, "Top Up Balance berhasil", responseData));
     }
-
 
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
