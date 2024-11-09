@@ -529,9 +529,10 @@ public class AuthController {
         return ResponseEntity.ok(new ApiResponse(0, "Transaksi berhasil", responseData));
     }
 
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+   @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
-    @GetMapping(value = "/transaction/history", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping("/transaction")
+    @GetMapping(value = "/history", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> getTransactionHistory(
             HttpServletRequest request,
             @RequestParam(defaultValue = "0") int offset,
