@@ -1,6 +1,7 @@
 package com.example.hometestnew.models;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -93,17 +94,22 @@ public class User {
 
     @Email
     @NotEmpty
-    @Schema(description = "Email address of the user", example = "")
+    @Schema(description = "user@gmail.com", example = "")
+    @JsonProperty("email")
     private String email;
 
+    @JsonProperty("first_name")
     @NotEmpty
     private String firstName;
 
+    @JsonProperty("last_name")
     @NotEmpty
     private String lastName;
 
 
     @Size(min = 8)
+    @JsonProperty("password")
+    @NotEmpty
     private String password;
 
     public String getProfileImage() {
