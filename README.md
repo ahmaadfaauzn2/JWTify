@@ -35,20 +35,26 @@ git clone https://github.com/ahmaadfaauzn2/hometest-java-program.git
 
 Open src/main/resources/application.properties and update the database connection settings:
 
+```
 spring.datasource.url=jdbc:postgresql://localhost:5432/hometestdb
 spring.datasource.username=hometestuser
 spring.datasource.password=password
 spring.jpa.hibernate.ddl-auto=update
+```
 
 ## 3. Build the Application
 
 # Using Maven:
 
+```
 mvn clean install
+```
 
 # Using Gradle:
 
+```
 gradle build
+```
 
 ## 4. Run the Application
 
@@ -56,18 +62,23 @@ To start the Spring Boot application, use one of the following commands:
 
 # With Maven:
 
+```
 mvn spring-boot:run
-
+```
 # With Gradle:
 
+```
 gradle bootRun
+```
 
 The application will run by default at http://localhost:8080.
 
 # 5. Access the API
 Once the application is running, you can view and test the API endpoints via Swagger UI at:
 
+```
 https://hometest-java-program-production.up.railway.app/swagger-ui/index.html#/
+```
 
 # API Endpoints
 # User Management:
