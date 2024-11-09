@@ -110,21 +110,23 @@ public class User {
 
     @Email
     @NotEmpty
-    @Schema(description = "user@gmail.com", example = "")
+    @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
     @JsonProperty("email")
     private String email;
 
-    @JsonProperty("first_name")
+    @Schema(description = "first_name", example = "user")
     @NotEmpty
     private String firstName;
 
     @JsonProperty("last_name")
+    @Schema(description = "last_name", example = "testing")
     @NotEmpty
     private String lastName;
 
 
     @Size(min = 8)
     @JsonProperty("password")
+    @Schema(description = "password", example = "password123")
     @NotEmpty
     private String password;
 
