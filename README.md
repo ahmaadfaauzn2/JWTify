@@ -80,6 +80,11 @@ Once the application is running, you can view and test the API endpoints via Swa
 https://hometest-java-program-production.up.railway.app/swagger-ui/index.html#/
 ```
 
+# Test the API 
+
+Heres the API Documentation you can try !
+https://hometest-java-program-production.up.railway.app/swagger-ui/index.html#/
+
 # API Endpoints
 # User Management:
 
