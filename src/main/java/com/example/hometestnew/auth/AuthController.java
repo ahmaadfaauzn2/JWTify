@@ -450,15 +450,16 @@ public class AuthController {
         // Prepare and return the success response
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("balance", newBalance);
-        // responseData.put("invoice_number", transaction.getInvoiceNumber());
+        responseData.put("invoice_number", transaction.getInvoiceNumber());
         return ResponseEntity.ok(new ApiResponse(0, "Top Up Balance berhasil", responseData));
     }
+
 
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PostMapping(value = "/transaction", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> performTransaction(@RequestBody Map<String, Object> requestBody, HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> performTransaction(@RequestBody TransactionRequest transactionRequest, HttpServletRequest request) {
 
         // Step 1: Validate Authorization header
         String authHeader = request.getHeader("Authorization");
@@ -480,7 +481,7 @@ public class AuthController {
         }
 
         // Step 4: Extract service_code from request body
-        String serviceCode = (String) requestBody.get("service_code");
+        String serviceCode = transactionRequest.getService_code();
         if (serviceCode == null || serviceCode.isEmpty()) {
             return createErrorResponse(HttpStatus.BAD_REQUEST, 102, "Service atau Layanan tidak ditemukan");
         }
