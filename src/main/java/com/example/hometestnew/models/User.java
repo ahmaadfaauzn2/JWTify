@@ -136,6 +136,7 @@ public class User {
         this.profileImage = profileImage;
     }
 
+    @JsonIgnore
     private String profileImage;
 
     public double getBalance() {
@@ -146,6 +147,7 @@ public class User {
         this.balance = balance;
     }
 
+    @JsonIgnore
     private double balance;
 
 //    // New fields
@@ -181,6 +183,7 @@ public class User {
     }
 
     @Column(name = "created_on")
+    @JsonIgnore
     private ZonedDateTime createdOn;
 
 
