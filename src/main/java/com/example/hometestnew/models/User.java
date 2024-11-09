@@ -114,6 +114,7 @@ public class User {
     @JsonProperty("email")
     private String email;
 
+    @JsonProperty("first_name")
     @Schema(description = "first_name", example = "user")
     @NotEmpty
     private String firstName;
