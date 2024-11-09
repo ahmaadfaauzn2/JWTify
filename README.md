@@ -1,6 +1,6 @@
 # HomeTest Java Program
 
-A Spring Boot application using PostgreSQL for database management. This project provides a home test for java programmer Nutech-Integrasi.
+A Spring Boot application using PostgreSQL for database management. This project provides a home test for java programmer.
 
 ## Tech Stack
 
