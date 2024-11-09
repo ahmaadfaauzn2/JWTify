@@ -12,33 +12,33 @@ public class ApiResponse {
     private String message;
     private Map<String, Object> data;
 
-    @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
-    @JsonProperty("email")
-    public String getEmail() {
-        return email;
-    }
+    // @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
+    // @JsonProperty("email")
+    // public String getEmail() {
+    //     return email;
+    // }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    // public void setEmail(String email) {
+    //     this.email = email;
+    // }
 
-    @JsonProperty("password")
-    @Schema(description = "The password of the user", example = "abcdef1234")
-    public String getPassword() {
-        return password;
-    }
+    // @JsonProperty("password")
+    // @Schema(description = "The password of the user", example = "abcdef1234")
+    // public String getPassword() {
+    //     return password;
+    // }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    // public void setPassword(String password) {
+    //     this.password = password;
+    // }
 
     // Update to use a custom response structure
-    @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
-    private String email;
+    // @Schema(description = "user@gmail.com", example = "usertesting@gmail.com")
+    // private String email;
 
-    @Schema(description = "The password of the user", example = "abcdef1234")
-    @JsonProperty("password")
-    private String password;
+    // @Schema(description = "The password of the user", example = "abcdef1234")
+    // @JsonProperty("password")
+    // private String password;
 
 
 
