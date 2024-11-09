@@ -10,6 +10,8 @@ import com.example.hometestnew.repository.ServiceRepository;
 //import com.example.hometestnew.repository.TransactionTypeRepository;
 import com.example.hometestnew.repository.TransactionRepository;
 import com.example.hometestnew.repository.UserRepository;
+import com.example.hometestnew.request.LoginRequest;
+import com.example.hometestnew.request.TopUpRequest;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -402,7 +404,7 @@ public class AuthController {
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PostMapping(value = "/topup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> topup(@RequestBody Map<String, Object> requestBody, HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> topup(@RequestBody TopUpRequest topUpRequest, HttpServletRequest request) {
         // Validate the Authorization header
         String authHeader = request.getHeader("Authorization");
         if (!isValidAuthHeader(authHeader)) {
@@ -422,28 +424,36 @@ public class AuthController {
             return createErrorResponse(HttpStatus.NOT_FOUND, 109, "User not found");
         }
 
-        // Validate the request body for top-up amount
-        Object topUpAmountObj = requestBody.get("top_up_amount");
-        if (topUpAmountObj == null || !(topUpAmountObj instanceof Number) || ((Number) topUpAmountObj).doubleValue() < 0) {
+        // Validate the top-up amount
+        double topUpAmount = topUpRequest.getTopUpAmount();
+        if (topUpAmount < 0) {
             return createErrorResponse(HttpStatus.BAD_REQUEST, 102, "Parameter amount hanya boleh angka dan tidak boleh lebih kecil dari 0");
         }
 
-        double topUpAmount = ((Number) topUpAmountObj).doubleValue();
-
-        //  Update the user's balance and transaction details
+        // Update the user's balance and transaction details
         double newBalance = user.getBalance() + topUpAmount;
         user.setBalance(newBalance);
-        user.setTransactionType("TOPUP"); // Set transaction type to TOPUP
-        user.setDescription("Top up Balance"); // Set static description for the top-up
+
+        // Create a new transaction record
+        Transaction transaction = new Transaction();
+        transaction.setUser(user);
+        transaction.setInvoiceNumber(user.getInvoiceNumber()); // Generate unique invoice number
+        transaction.setTransactionType("TOPUP");
+        transaction.setDescription("Top up Balance");
+        transaction.setTotalAmount(topUpAmount);
+        transaction.setCreatedOn(ZonedDateTime.now());
 
         // Save updated user balance and transaction details
         userRepository.save(user);
+        transactionRepository.save(transaction); // Save the transaction to the database
 
-        //  Prepare and return the success response
+        // Prepare and return the success response
         Map<String, Object> responseData = new HashMap<>();
         responseData.put("balance", newBalance);
+        responseData.put("invoice_number", transaction.getInvoiceNumber());
         return ResponseEntity.ok(new ApiResponse(0, "Top Up Balance berhasil", responseData));
     }
+
 
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
