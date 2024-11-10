@@ -297,6 +297,7 @@ public class AuthController {
     // Endpoint banner
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
+    @Tag(name = "Banner", description = "Endpoint for user banner")
     @GetMapping(value = "/banner", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> getBanners() {
         // Retrieve the list of banners from the database
@@ -324,6 +325,7 @@ public class AuthController {
     // Endpoint Services
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
+    @Tag(name = "Services", description = "Endpoint for user services")
     @GetMapping(value = "/services", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> services(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
