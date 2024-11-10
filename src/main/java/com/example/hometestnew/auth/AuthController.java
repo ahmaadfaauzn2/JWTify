@@ -120,7 +120,7 @@ public class AuthController {
     // Endpoint Profile
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasRole('ROLE_USER')")
-    @Tag(name = "Profile", description = "Endpoint for change first_name and last_name")
+    // @Tag(name = "Profile", description = "Endpoint for change first_name and last_name")
     @GetMapping("/profile")
     public ResponseEntity<ApiResponse> getProfile(HttpServletRequest request) {
         // Validate the Authorization header
@@ -234,6 +234,8 @@ public class AuthController {
     // Endpoint Upload Profile Image
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
+        // @Tag(name = "Transaction", description = "Endpoint for user transaction")
+    @Tag(name = "Profile", description = "Endpoint for user change user pfoile images")
     @PutMapping(value = "/profile/image", consumes = "multipart/form-data", produces = "application/json")
     public ResponseEntity<ApiResponse> uploadProfileImage(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
 
@@ -411,7 +413,8 @@ public class AuthController {
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
-    @Tag(name = "TopUp", description = "Endpoint for user top-up balance")
+    // @Tag(name = "TopUp", description = "Endpoint for user top-up balance")
+    @Tag(name = "Transaction", description = "Endpoint for user transaction")
     @PostMapping(value = "/topup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> topup(@RequestBody TopUpRequest topUpRequest, HttpServletRequest request) {
         // Validate the Authorization header
