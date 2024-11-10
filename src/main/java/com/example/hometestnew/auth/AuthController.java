@@ -12,7 +12,12 @@ import com.example.hometestnew.repository.TransactionRepository;
 import com.example.hometestnew.repository.UserRepository;
 import com.example.hometestnew.models.LoginRequest;
 import com.example.hometestnew.models.TopUpRequest;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +76,7 @@ public class AuthController {
 
     // Endpoint Login
     @PostMapping("/login")
+    @Tag(name = "Login", description = "Endpoint for user login")
     public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest loginRequest) {
         // Define the required parameters for login
         String email = loginRequest.getEmail();
@@ -114,7 +120,7 @@ public class AuthController {
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/profile")
-    public ResponseEntity<ApiResponse> profile(HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> getProfile(HttpServletRequest request) {
         // Validate the Authorization header
         String authHeader = request.getHeader("Authorization");
 
@@ -287,7 +293,7 @@ public class AuthController {
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @GetMapping(value = "/banner", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ApiResponse> banner() {
+    public ResponseEntity<ApiResponse> getBanners() {
         // Retrieve the list of banners from the database
         List<Banner> banners = bannerService.getAllBanners();
 
@@ -363,7 +369,7 @@ public class AuthController {
     @GetMapping(value = "/balance", produces = MediaType.APPLICATION_JSON_VALUE)
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasAuthority('ROLE_USER')")
-    public ResponseEntity<ApiResponse> balance(HttpServletRequest request) {
+    public ResponseEntity<ApiResponse> getBalance(HttpServletRequest request) {
         // Validate the Authorization header
         String authHeader = request.getHeader("Authorization");
 
