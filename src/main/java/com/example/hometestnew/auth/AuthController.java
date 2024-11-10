@@ -120,6 +120,7 @@ public class AuthController {
     // Endpoint Profile
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasRole('ROLE_USER')")
+    @Tag(name = "Profile", description = "Endpoint for change first_name and last_name")
     @GetMapping("/profile")
     public ResponseEntity<ApiResponse> getProfile(HttpServletRequest request) {
         // Validate the Authorization header
@@ -155,6 +156,7 @@ public class AuthController {
     // Endpoint Update Profile
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
+    @Tag(name = "Profile", description = "Endpoint for user change user pfoile images")
     @PutMapping(value = "/profile/update", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> updateProfile(@RequestBody Map<String, String> updateData, HttpServletRequest request) {
         // Validate the Authorization header
