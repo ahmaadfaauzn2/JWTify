@@ -120,7 +120,7 @@ public class AuthController {
     // Endpoint Profile
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasRole('ROLE_USER')")
-    // @Tag(name = "Profile", description = "Endpoint for change first_name and last_name")
+    @Tag(name = "Profile", description = "Endpoint for user change user pfoile images")
     @GetMapping("/profile")
     public ResponseEntity<ApiResponse> getProfile(HttpServletRequest request) {
         // Validate the Authorization header
@@ -372,6 +372,7 @@ public class AuthController {
     // Endpoint balance
 
     @GetMapping(value = "/balance", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Tag(name = "Balance", description = "Endpoint for user balance")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity<ApiResponse> getBalance(HttpServletRequest request) {
