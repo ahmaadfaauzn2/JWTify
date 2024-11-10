@@ -409,6 +409,7 @@ public class AuthController {
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
+    @Tag(name = "TopUp", description = "Endpoint for user top-up balance")
     @PostMapping(value = "/topup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> topup(@RequestBody TopUpRequest topUpRequest, HttpServletRequest request) {
         // Validate the Authorization header
