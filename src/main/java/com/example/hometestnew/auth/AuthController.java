@@ -102,6 +102,7 @@ public class AuthController {
 
     // Endpoint Register
     @PostMapping("/registration")
+    @Tag(name = "Registration", description = "Endpoint for user registration")
     public ResponseEntity<ApiResponse> registration(@Valid @RequestBody User user) {
         // Validate the email format
         if (!user.getEmail().contains("@")) {
