@@ -465,6 +465,7 @@ public class AuthController {
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
     @PostMapping(value = "/transaction", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Tag(name = "Transaction", description = "Endpoint for user transaction")
     public ResponseEntity<ApiResponse> performTransaction(@RequestBody TransactionRequest transactionRequest, HttpServletRequest request) {
 
         // Step 1: Validate Authorization header
@@ -537,6 +538,7 @@ public class AuthController {
 
     @PreAuthorize("hasAuthority('ROLE_USER')")
     @SecurityRequirement(name = "JavaInUseSecurityScheme")
+    @Tag(name = "Transaction", description = "Endpoint for user transaction")
     @GetMapping(value = "/transaction/history", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApiResponse> getTransactionHistory(
             HttpServletRequest request,
