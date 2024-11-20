@@ -1,6 +1,6 @@
-# HomeTest Java Program
+# JWTify
 
-A Spring Boot application using PostgreSQL for database management. This project provides a home test for java programmer.
+A Spring Boot application using PostgreSQL for database management. This project just for learning JWT.
 
 ## Tech Stack
 
